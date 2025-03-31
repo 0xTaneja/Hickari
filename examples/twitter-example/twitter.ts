@@ -9,8 +9,13 @@ import {
 import dotenv from 'dotenv';
 import path from 'path';
 
-// Load environment variables from the correct location
-dotenv.config({ path: path.join(__dirname, '.env') });
+// Ensure .env file is loaded
+dotenv.config({ path: "../.env" });
+
+// Log the API key (without revealing the full key) to debug
+const apiKey = process.env.API_KEY;
+console.log("API Key exists:", apiKey ? "Yes" : "No");
+console.log("API Key starts with:", apiKey?.substring(0, 5) + "***");
 
 const postTweetFunction = new GameFunction({
   name: "post_tweet",
@@ -109,7 +114,7 @@ const postTweetWorker = new GameWorker({
 });
 
 // Create an agent with the worker
-const agent = new GameAgent(process.env.API_KEY!, {
+const agent = new GameAgent(apiKey!, {
   name: "Twitter Bot",
   goal: "Search and reply to tweets",
   description: "A bot that searches for tweets and replies to them",

@@ -20,8 +20,10 @@
     "typescript": "^5.7.2"
   },
   "dependencies": {
+    "@virtuals-protocol/game": "^0.1.11",
     "axios": "^1.7.9",
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "openai": "^4.90.0"
   },
   "files": [
     "dist"
