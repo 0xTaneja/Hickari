@@ -7,12 +7,15 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "example": "ts-node src/example.ts"
+    "example": "ts-node src/example.ts",
+    "start": "ts-node src/example.ts",
+    "dev": "ts-node-dev --respawn src/example.ts"
   },
   "dependencies": {
     "@virtuals-protocol/game": "^0.1.9",
     "axios": "^1.6.0",
     "mongodb": "^6.3.0",
+    "mongoose": "^8.0.0",
     "dotenv": "^16.4.7",
     "openai": "^4.0.0"
   },
@@ -20,6 +23,7 @@
     "@types/node": "^22.0.0",
     "typescript": "^5.0.0",
     "ts-node": "^10.9.0",
+    "ts-node-dev": "^2.0.0",
     "jest": "^29.0.0",
     "@types/jest": "^29.0.0"
   }
