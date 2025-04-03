@@ -20,8 +20,8 @@ const momentDetectorPlugin = new MomentDetectorPlugin({
 
 export const momentDetectorAgent = new GameAgent(process.env.API_KEY,{
     name:"Moment Detector Agent",
-    goal:"Continuously scan for trending real-world events and rank them by emotional resonance to identify which moments Hikari should turn into Ghibli art tokens.",
-    description:"You are an agent which scans global trends across Reddit, YouTube Shorts, and news APIs, seeking the most emotionally charged moments of the day. you perform sentiment analysis and social signals and rank events by resonance — from joy and triumph to loss and heartbreak — and deliver the top stories.",
+    goal:"Complete these specific steps in order: 1) Fetch content from Reddit, 2) Fetch news from GNews API, 3) Fetch content from YouTube, 4) Analyze sentiment of all collected content, 5) Rank moments by emotional impact, 6) Store top results in MongoDB.",
+    description:"You are an agent that must follow a strict workflow to detect emotionally significant moments. Your process must be: First collect content from Reddit (r/news, r/worldnews, r/UpliftingNews). Next collect news from GNews API. Then get content from YouTube. Once ALL content is collected, analyze the sentiment of EACH item using the sentiment analysis function. Then rank all items by emotional impact. Finally, store the top ranked moments in MongoDB. You MUST complete each step fully before moving to the next step.",
     workers:[momentDetectorPlugin.getWorker()],
     llmModel:LLMModel.DeepSeek_R1
 })
